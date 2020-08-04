@@ -20,7 +20,6 @@ and simplicity We promise you effectivity, security
 and simplicity We promise you effectivity, security
 and simplicity
 
-
 We are a white label solution, that
 means our brand won't be visible in
 the final product
