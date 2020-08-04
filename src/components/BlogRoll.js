@@ -23,7 +23,14 @@ class BlogRoll extends React.Component {
                 }}
               >
                 <header style={{ flexDirection: 'column' }}>
-                  <p>
+                  <p
+                    style={{
+                      fontFamily: 'Open Sans',
+                      fontSize: 16,
+                      fontWeight: 400,
+                      color: '#B2B2B2'
+                    }}
+                  >
                     {post.frontmatter.date}
                   </p>
                   <p className="post-meta">
@@ -43,7 +50,14 @@ class BlogRoll extends React.Component {
                   </p>
                 </header>
                 <div style={{ border: '2px solid #00AFDC', width: '20%', marginBottom: '7%' }}></div>
-                <p>
+                <p
+                  style={{
+                    fontFamily: 'Open Sans',
+                    fontSize: 16,
+                    fontWeight: 400,
+                    color: '#707070'
+                  }}
+                >
                   {post.excerpt}
                   <br />
                   <br />
