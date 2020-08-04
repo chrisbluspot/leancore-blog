@@ -12,43 +12,44 @@ class BlogRoll extends React.Component {
       <div className="columns is-multiline">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
+            <div className="is-parent column is-4" key={post.id}>
               <article
-                className={`blog-list-item tile is-child box notification ${
+                className={`blog-list-item tile is-child box ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
+                style={{ 
+                  borderTop: '4px solid #00AFDC',
+                  borderRadius: '0px'
+                }}
               >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                  ) : null}
+                <header style={{ flexDirection: 'column' }}>
+                  <p>
+                    {post.frontmatter.date}
+                  </p>
                   <p className="post-meta">
                     <Link
-                      className="title has-text-primary is-size-4"
+                      style = {{
+                        fontFamily: 'Open Sans',
+                        fontSize: 26,
+                        fontWeight: 400,
+                        color: '#00253D',
+                        lineHeight: '0.032em',
+                        textDecoration: 'none'
+                      }}
                       to={post.fields.slug}
                     >
                       {post.frontmatter.title}
                     </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
                   </p>
                 </header>
+                <div style={{ border: '2px solid #00AFDC', width: '20%', marginBottom: '7%' }}></div>
                 <p>
                   {post.excerpt}
                   <br />
                   <br />
-                  <Link className="button" to={post.fields.slug}>
+                  {/* <Link className="button" to={post.fields.slug}>
                     Keep Reading →
-                  </Link>
+                  </Link> */}
                 </p>
               </article>
             </div>
