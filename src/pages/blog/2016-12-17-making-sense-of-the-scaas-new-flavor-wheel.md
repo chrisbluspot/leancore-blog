@@ -9,6 +9,8 @@ tags:
   - flavor
   - tasting
 ---
+![Lorem](/img/pexels-karolina-grabowska-4386433.jpg "Lorem")
+
 We are permanently improving all our technology and services to create better products.
 
 We promise you effectivity, security and simplicity.
