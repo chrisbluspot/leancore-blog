@@ -9,7 +9,7 @@ tags:
   - flavor
   - tasting
 ---
-![Lorem](/img/pexels-karolina-grabowska-4386433.jpg)
+![](/img/pexels-karolina-grabowska-4386433.jpg)
 
 We are permanently improving all our technology and services to create better products.
 
