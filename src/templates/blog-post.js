@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const BlogPostTemplate = ({
   content,
@@ -17,7 +18,6 @@ export const BlogPostTemplate = ({
   helmet,
 }) => {
   const PostContent = contentComponent || Content
-
   return (
     <div>
       <div
@@ -52,7 +52,12 @@ export const BlogPostTemplate = ({
                 justifyContent: 'center'
               }}
             >
-              <img src={`${featuredImage}`} />
+              <PreviewCompatibleImage
+                imageInfo={{
+                  image: featuredImage,
+                  alt: `Image for post ${title}`,
+                }}
+              />
             </div>
             <div 
               className="column is-6"
