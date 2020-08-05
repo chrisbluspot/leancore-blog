@@ -4,13 +4,11 @@ title: Lorem ipsum dolor sit amet consectetur
 date: 2016-12-17T15:04:10.000Z
 description: Lorem bluspot
 featuredpost: false
-featuredimage: /img/flavor_wheel.jpg
+featuredimage: /img/pexels-karolina-grabowska-4386433.jpg
 tags:
   - flavor
   - tasting
 ---
-![](/img/pexels-karolina-grabowska-4386433.jpg)
-
 We are permanently improving all our technology and services to create better products.
 
 We promise you effectivity, security and simplicity.
