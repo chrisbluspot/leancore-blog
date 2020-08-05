@@ -10,6 +10,8 @@ export const BlogPostTemplate = ({
   content,
   contentComponent,
   description,
+  featuredImage,
+  date,
   tags,
   title,
   helmet,
@@ -17,32 +19,116 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content
 
   return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+    <div>
+      <div
+        className="half-width-image margin-top-0"
+        style={{
+          // backgroundImage: `url(${
+          //   !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+          // })`,
+          background: 'linear-gradient(30deg, #A7EDFF, #E1F9FF)',
+          backgroundPosition: `top left`,
+          backgroundAttachment: `fixed`,
+        }}
+      >
+        {/* <div
+          style={{
+            border: '2px solid red'
+          }}
+        >
+          <h1>Blog</h1>
+        </div> */}
+      </div>
+      <section className="section">
+        {helmet || ''}
+        <div 
+          className="container content"
+        >
+          <div className="columns">
+            <div 
+              className="column is-6"
+              style={{
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <img src={`${featuredImage}`} />
+            </div>
+            <div 
+              className="column is-6"
+              style={{
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: 'Open Sans',
+                  fontSize: 16,
+                  fontWeight: 400,
+                  color: '#B2B2B2'
+                }}
+              >
+                {date}
+              </p>
+              <h1 
+                //className="title is-size-2 has-text-weight-bold is-bold-light"
+                style = {{
+                  fontFamily: 'Open Sans',
+                  fontSize: 26,
+                  fontWeight: 400,
+                  color: '#00253D',
+                  lineHeight: '0.032em',
+                }}
+              >
+                {title}
+              </h1>
+              <p
+                style={{
+                  fontFamily: 'Open Sans',
+                  fontSize: 16,
+                  fontWeight: 400,
+                  color: '#707070'
+                }}
+              >
+                {description}
+              </p>
+              <PostContent 
+                content={content}
+                style={{
+                  fontFamily: 'Open Sans',
+                  fontSize: 16,
+                  fontWeight: 400,
+                  color: '#707070'
+                }} 
+              />
+              {/* {tags && tags.length ? (
+                <div style={{ marginTop: `4rem` }}>
+                  <h4
+                    style={{
+                      fontFamily: 'Open Sans',
+                      fontSize: 20,
+                      fontWeight: 400,
+                      color: '#00253D',
+                      lineHeight: '0.032em',
+                    }}
+                  >
+                    Tags
+                  </h4>
+                  <ul className="taglist">
+                    {tags.map((tag) => (
+                      <li key={tag + `tag`}>
+                        <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null} */}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }
 
@@ -63,6 +149,8 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        featuredImage={post.frontmatter.featuredimage}
+        date={post.frontmatter.date}
         helmet={
           <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
@@ -97,6 +185,7 @@ export const pageQuery = graphql`
         title
         description
         tags
+        featuredimage
       }
     }
   }
