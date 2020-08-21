@@ -7,6 +7,19 @@ import twitter from '../img/social/twitter.svg'
 import vimeo from '../img/social/vimeo.svg'
 
 const Footer = class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { email: '' }
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
   render() {
     return (
       <footer 
@@ -85,6 +98,48 @@ const Footer = class extends React.Component {
                 <ul className="menu-list">
                   <li style={{ marginLeft: '3%', fontWeight: 600 }}>
                     SUBSCRIBE TO OUR NEWSLETTER
+                  </li>
+                  <li>
+                    <form
+                      onSubmit={this.handleSubmit}
+                      style={{
+                        marginTop: '20px',
+                        marginLeft: '16px',
+                      }}
+                    >
+                      <input
+                        style={{
+                          height: '50px',
+                          width: '300px',
+                          borderTopLeftRadius: '15px',
+                          borderBottomLeftRadius: '15px',
+                          border: '2px solid #707070',
+                        }}
+                        className="input"
+                        type={'email'}
+                        name={'email'}
+                        onChange={this.handleChange}
+                        id={'email'}
+                        required={true}
+                        placeholder="Your email"
+                      />
+                      <button
+                        type="submit"
+                        style={{
+                          height: '50px',
+                          width: '60px',
+                          backgroundColor: '#00afdc',
+                          border: '2px solid #00afdc',
+                          color: 'white',
+                          fontFamily: 'Open Sans',
+                          fontSize: '20px',
+                          borderTopRightRadius: '15px',
+                          borderBottomRightRadius: '15px'
+                        }}
+                      >
+                        {`>`}
+                      </button>
+                    </form>
                   </li>
                 </ul>
               </div>
