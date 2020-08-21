@@ -1,6 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
+import indexBackground from '../../img/new-header@2x.png'
 
 function encode(data) {
   return Object.keys(data)
@@ -39,8 +40,10 @@ export default class Index extends React.Component {
         <div
           className="half-width-image-container margin-top-0"
           style={{
-            //backgroundImage: `url('/img/blog-index.jpg')`,
-            background: 'linear-gradient(30deg, #A7EDFF, #E1F9FF)',
+            backgroundImage: `url(${indexBackground}), linear-gradient(30deg, #A7EDFF, #E1F9FF)`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: `top left`,
+            backgroundAttachment: `fixed`,
           }}
         >
           {/* <h1
@@ -56,7 +59,16 @@ export default class Index extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1>Contact</h1>
+              <h1
+                style={{
+                  fontFamily: 'Open Sans',
+                  fontSize: '40px',
+                  fontWeight: 600,
+                  color: '#00253D'
+                }}
+              >
+                Contact us
+              </h1>
               <form
                 name="contact"
                 method="post"
@@ -74,7 +86,16 @@ export default class Index extends React.Component {
                   </label>
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor={'name'}>
+                  <label 
+                    className="label"
+                    htmlFor={'name'}
+                    style={{
+                      fontFamily: 'Open Sans',
+                      fontSize: '20px',
+                      fontWeight: 600,
+                      color: '#00253D'
+                    }}
+                  >
                     Your name
                   </label>
                   <div className="control">
@@ -89,7 +110,16 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor={'email'}>
+                  <label
+                    className="label"
+                    htmlFor={'email'}
+                    style={{
+                      fontFamily: 'Open Sans',
+                      fontSize: '20px',
+                      fontWeight: 600,
+                      color: '#00253D'
+                    }}
+                  >
                     Email
                   </label>
                   <div className="control">
@@ -104,7 +134,16 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor={'message'}>
+                  <label
+                    className="label"
+                    htmlFor={'message'}
+                    style={{
+                      fontFamily: 'Open Sans',
+                      fontSize: '20px',
+                      fontWeight: 600,
+                      color: '#00253D'
+                    }}
+                  >
                     Message
                   </label>
                   <div className="control">
@@ -118,7 +157,20 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <button className="button is-link" type="submit">
+                  <button
+                    type="submit"
+                    style={{
+                      borderRadius: 25,
+                      justifyContent: 'center',
+                      border: '2px solid #00afdc',
+                      backgroundColor: '#00afdc',
+                      color: 'white',
+                      padding: '2px 40px',
+                      width: '162px',
+                      fontFamily: 'Open Sans',
+                      fontSize: '20px'
+                    }}
+                  >
                     Send
                   </button>
                 </div>
