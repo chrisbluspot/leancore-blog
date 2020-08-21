@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Lean Core | We lead the future of banking',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      "We drive startups and Fintechs through an agil and secure platform 100% SAAS to let them have different banking capabilities.",
   },
   plugins: [
     'gatsby-plugin-react-helmet',
