@@ -5,6 +5,9 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import indexBackground from '../img/index-background.png'
+import useWindowSize from '../hooks/useWindowSize'
+import logo from '../img/logo.png'
 
 export const IndexPageTemplate = ({
   image,
@@ -14,6 +17,7 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
+  size
 }) => (
   <div>
     <div
@@ -22,7 +26,8 @@ export const IndexPageTemplate = ({
         // backgroundImage: `url(${
         //   !!image.childImageSharp ? image.childImageSharp.fluid.src : image
         // })`,
-        background: 'linear-gradient(30deg, #A7EDFF, #E1F9FF)',
+        backgroundImage: `url(${indexBackground}), linear-gradient(30deg, #A7EDFF, #E1F9FF)`,
+        backgroundRepeat: 'no-repeat',
         backgroundPosition: `top left`,
         backgroundAttachment: `fixed`,
       }}
@@ -36,53 +41,83 @@ export const IndexPageTemplate = ({
       </div> */}
       <div
         style={{
-          display: 'flex',
-          height: '125px',
-          width: '700px',
-          paddingLeft: '30px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-          backgroundColor: "white",
-          borderTopRightRadius: 25,
-          borderTopLeftRadius: 25,
-          position: 'relative',
-          left: '60px'
+          width: '100%',
+          height: '100%'
         }}
       >
-        <h1
-          //className="is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          className="subtitle-text"
+        <div
           style={{
-            // boxShadow:
-            //   'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            // backgroundColor: 'rgb(255, 68, 0)',
-            color: '#00253D',
-            lineHeight: '1',
-            padding: '0.25em',
+            marginTop: '164px',
+            paddingLeft: size.width >= 1920 ? '261.8px' : size.width >= 992 ? '60px' : '0px',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
           }}
         >
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-          erat, sed diam voluptua.
-          {/* {title} */}
-        </h1>
+          <h1
+            style={{
+              color: 'white',
+              fontFamily: 'Open Sans',
+              fontSize: '50px',
+              fontWeight: '200',
+              marginRight: size.width >= 1920 ? '40px' : size.width >= 992 ? '20px' : '10px',
+              lineHeight: '30px',
+              alignSelf: 'flex-start'
+            }}
+          >
+            Blog
+          </h1>
+          <img src={logo} alt="Lean Core logo" style={{ width: '209.4px', height: '57.27px' }} />
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            height: '125px',
+            width: '700px',
+            paddingLeft: '30px',
+            lineHeight: '1',
+            justifyContent: 'space-around',
+            alignItems: 'left',
+            flexDirection: 'column',
+            backgroundColor: "white",
+            borderTopRightRadius: 25,
+            borderTopLeftRadius: 25,
+            position: 'relative',
+            left: size.width >= 1920 ? '47%' : size.width >= 992 ? '39%' : '10%',
+            top:'14%'
+          }}
+        >
+          <h1
+            //className="is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+            className="subtitle-text"
+            style={{
+              // boxShadow:
+              //   'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+              // backgroundColor: 'rgb(255, 68, 0)',
+              color: '#00253D',
+              lineHeight: '1',
+              padding: '0.25em',
+            }}
+          >
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua.
+            {/* {title} */}
+          </h1>
+        </div>
       </div>
     </div>
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
           <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="column is-12">
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      MORE
-                    </Link>
-                  </div>
+            <div className="content">
+              <div className="column is-12">
+                <BlogRoll />
+                <div className="column is-12 has-text-centered">
+                  <Link className="btn" to="/blog">
+                    MORE
+                  </Link>
                 </div>
               </div>
             </div>
@@ -107,6 +142,7 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
+  const size = useWindowSize();
 
   return (
     <Layout>
@@ -118,6 +154,7 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        size={size}
       />
     </Layout>
   )

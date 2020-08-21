@@ -6,6 +6,9 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import useWindowSize from '../hooks/useWindowSize'
+import blogBackground from '../img/blog-background.png'
+import logo from '../img/logo.png'
 
 export const BlogPostTemplate = ({
   content,
@@ -18,6 +21,7 @@ export const BlogPostTemplate = ({
   helmet,
 }) => {
   const PostContent = contentComponent || Content
+  const size = useWindowSize();
   return (
     <div>
       <div
@@ -29,8 +33,43 @@ export const BlogPostTemplate = ({
           background: 'linear-gradient(30deg, #A7EDFF, #E1F9FF)',
           backgroundPosition: `top left`,
           backgroundAttachment: `fixed`,
+          height: '308px'
         }}
       >
+        <div
+          style={{
+            position: 'absolute',
+            top: '5%',
+            zIndex: 2,
+          }}
+        >
+          <img src={blogBackground} />
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignSelf: 'flex-start',
+            position: 'relative',
+            top: '60%',
+            left: size.width >= 1920 ? '-25%' : size.width >= 992 ? '-35%' : '-10%'
+          }}
+        >
+          <h1
+            style={{
+              color: 'white',
+              fontFamily: 'Open Sans',
+              fontSize: '50px',
+              fontWeight: '200',
+              marginRight: size.width >= 1920 ? '40px' : size.width >= 992 ? '20px' : '10px',
+              lineHeight: '30px',
+              alignSelf: 'flex-start'
+            }}
+          >
+            Blog
+          </h1>
+          <img src={logo} alt="Lean Core logo" style={{ width: '209.4px', height: '57.27px' }} />
+        </div>
         {/* <div
           style={{
             border: '2px solid red'
@@ -88,16 +127,13 @@ export const BlogPostTemplate = ({
               >
                 {title}
               </h1>
-              <p
-                style={{
-                  fontFamily: 'Open Sans',
-                  fontSize: 16,
-                  fontWeight: 400,
-                  color: '#707070'
+              <div 
+                style={{ 
+                  border: '2px solid #00afdc',
+                  width: '46.61px',
+                  margin: '31.9px 0px'
                 }}
-              >
-                {description}
-              </p>
+              ></div>
               <PostContent 
                 content={content}
                 style={{

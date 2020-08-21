@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+//import logo from '../img/logo.png'
 
 const styles = {
   buttonText: { 
@@ -59,9 +59,9 @@ const Navbar = class extends React.Component {
       >
         <div className="container" style={{ paddingTop: 10 }}>
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
+            {/* <Link to="/" title="Logo">
+              <img src={logo} alt="Bluspot" style={{ width: '164px', height: '46.62px' }} />
+            </Link> */}
             {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
@@ -76,10 +76,11 @@ const Navbar = class extends React.Component {
           <div
             id="navMenu"
             className={`navbar-menu ${this.state.navBarActiveClass}`}
+            style={{ display: 'flex', alignItems: 'center' }}
           >
             <div className="navbar-start has-text-centered"></div>
             <div className="navbar-end has-text-centered">
-              <Link className="navbar-item" to="/products" style={styles.buttonText}>
+              <Link className="navbar-item" to="/" style={styles.buttonText}>
                 LEAN CORE
               </Link>
               <Link className="navbar-item" to="/blog" style={styles.buttonText} style={{

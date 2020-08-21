@@ -9,10 +9,10 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
+      <div className="columns is-multiline" style={{ display: 'flex', justifyContent: 'space-between' }}>
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-4" key={post.id}>
+            <div className="is-parent column is-4" key={post.id} style={{ maxWidth: '30%' }}>
               <article
                 className={`blog-list-item tile is-child box ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
@@ -110,3 +110,14 @@ export default () => (
     render={(data, count) => <BlogRoll data={data} count={count} />}
   />
 )
+
+// @include media(">=1400", "<=1920"){
+//   .full-width-image
+//     width: 100vw
+//     height: 533px
+//     background-size: contain
+//     background-position: bottom
+//     display: flex
+//     justify-content: center
+//     align-items: flex-end
+// }
