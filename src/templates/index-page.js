@@ -25,7 +25,7 @@ import coin from '../img/coin.png'
 import userImage from '../img/pexels@2x.jpg'
 import pcCard from '../img/pexels-card@2x.jpg'
 
-export const IndexPageTemplate = () => {
+export const IndexPageTemplate = ({ size }) => {
   const [modalOpened, setModalOpened] = useState(false)
   const [elemZIndex, setElemZIndex] = useState(2)
   const [contactForm, setContactForm] = useState({
@@ -78,6 +78,7 @@ export const IndexPageTemplate = () => {
     })
   }
 
+  console.log('size: ', size.width);
   return (
     <div>
       <Modal
@@ -273,6 +274,7 @@ export const IndexPageTemplate = () => {
               position: 'absolute',
               zIndex: elemZIndex,
               marginTop: '65px',
+              display: size.width < 750 ? 'none' : 'block',
             }}
           >
             <img src={blueCubes} alt="Blue cubes" style={{ width: '1300px', height: '650px' }} />
@@ -282,20 +284,29 @@ export const IndexPageTemplate = () => {
               position: 'absolute',
               zIndex: elemZIndex - 1,
               marginTop: '5px',
+              display: size.width < 750 ? 'none' : 'block',
             }}
           >
             <img src={whiteCubes} alt="White cubes" style={{ width: '1300px', height: '650px' }} />
           </div>
           <div
             style={{
-              width: '750px',
+              width: size.width >= 850 ? '750px' : '300px',
               marginTop: '294px',
               display: 'flex',
-              flexDirection: 'row'
+              flexDirection: size.width >= 750 ? 'row' : 'column',
               //paddingLeft: size.width >= 1920 ? '261.8px' : size.width >= 992 ? '60px' : '0px',
             }}
           >
-            <img src={logo} alt="Lean Core logo" style={{ width: '209.4px', height: '57.27px' }} />
+            <img 
+              src={logo}
+              alt="Lean Core logo"
+              style={{
+                width: '209.4px',
+                height: '57.27px',
+                alignSelf: 'center'
+              }}
+            />
             <p
               style={{
                 fontFamily: 'Open Sans',
@@ -304,7 +315,9 @@ export const IndexPageTemplate = () => {
                 fontSize: '22px',
                 color: '#00afdc',
                 lineHeight: '1.3em',
-                marginLeft: '50px'
+                marginLeft: size.width >= 750 ? '50px' : '0px',
+                marginTop: size.width >= 750 ? '0px' : '20px',
+                textAlign: size.width >= 750 ? 'initial' : 'center'
               }}
             >
               We create technology with a big impact that allows Fintechs and Startups to grow and evolve rapidly.
@@ -312,7 +325,11 @@ export const IndexPageTemplate = () => {
           </div>
         </div>
       </div>
-      <section style={{ height: '656px', backgroundColor: '#F9F9F9' }}>
+      <section
+        style={{
+          height: size.width >= 750 ? '656px' : '730px',
+          backgroundColor: '#F9F9F9'
+        }}>
         <div
           style={{
             height: '100%',
@@ -325,33 +342,36 @@ export const IndexPageTemplate = () => {
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: size.width >= 750 ? 'row' : 'column',
               height: '100%',
+              alignItems: size.width >= 750 ? 'initial' : 'center'
             }}
           >
             <div
               style={{
-                width: '590px',
+                width: size.width >= 750 ? '590px' : '300px',
                 height: '756px',
                 overflow: 'hidden',
-                position: 'relative',
-                top: '40px',
+                position: size.width >= 750 ? 'relative' : 'static',
+                top: size.width >= 750 ? '40px' : '0px',
               }}
             >
               <img 
                 src={cellphone}
                 alt="White cubes"
                 style={{
-                  width: '1091px',
-                  height: '756px'
+                  width: size.width >= 750 ? '1091px' : '801px',
+                  height: size.width >= 750 ? '756px' : '466px',
+                  marginTop: size.width >= 750 ? '0px' : '20px'
                 }} />
             </div>
             <div
               style={{
-                marginLeft: '30px',
+                marginLeft: size.width >= 750 ? '30px' : '0px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
+                alignItems: size.width >= 750 ? 'initial' : 'center'
               }}
             >
               <p
@@ -360,7 +380,9 @@ export const IndexPageTemplate = () => {
                   fontSize: '40px',
                   fontWeight: 200,
                   color: '#00afdc',
-                  width: '350px'
+                  width: '350px',
+                  textAlign: size.width >= 750 ? 'initial' : 'center',
+                  marginTop: size.width >= 750 ? '0px' : '20px'
                 }}
               >
                 We lead the future of banking
@@ -378,7 +400,9 @@ export const IndexPageTemplate = () => {
                   fontSize: '20px',
                   fontWeight: 200,
                   color: '#707070',
-                  width: '470px'
+                  width: size.width >= 750 ? '470px' : '300px',
+                  textAlign: size.width >= 750 ? 'initial' : 'center',
+                  marginBottom: size.width >= 750 ? '0px' : '20px'
                 }}
               >
                 We drive startups and Fintechs through an agil and secure  platform 100% SAAS to let them have different banking capabilities.
@@ -388,9 +412,11 @@ export const IndexPageTemplate = () => {
         </div>
       </section>
       <section
-        style={{ height: '656px',
-        backgroundImage:' linear-gradient( #A7EDFF, #E1F9FF)'
-      }}>
+        style={{ 
+          height: size.width >= 750 ? '656px' : '800px',
+          backgroundImage:' linear-gradient( #A7EDFF, #E1F9FF)'
+        }}
+      >
         <div
           style={{
             height: '100%',
@@ -403,7 +429,7 @@ export const IndexPageTemplate = () => {
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: size.width >= 750 ? 'row' : 'column',
               height: '100%',
             }}
           >
@@ -412,6 +438,7 @@ export const IndexPageTemplate = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
+                alignItems: size.width >= 750 ? 'initial' : 'center'
               }}
             >
               <p
@@ -420,7 +447,9 @@ export const IndexPageTemplate = () => {
                   fontSize: '40px',
                   fontWeight: 200,
                   color: '#00253D',
-                  width: '440px'
+                  width: size.width >= 750 ? '440px' : 300,
+                  textAlign: size.width >= 750 ? 'initial' : 'center',
+                  marginTop: size.width >= 750 ? '0px' : '20px'
                 }}
               >
                 Technology 100% Cloud
@@ -438,7 +467,8 @@ export const IndexPageTemplate = () => {
                   fontSize: '20px',
                   fontWeight: 200,
                   color: '#00253D',
-                  width: '480px'
+                  width: size.width >= 750 ? '480px' : '300px',
+                  textAlign: size.width >= 750 ? 'initial' : 'center'
                 }}
               >
                 The financial ecosystem is experimenting a revolution with open banking tools and Leancore is your key partner to lead this transformation.  
@@ -465,15 +495,26 @@ export const IndexPageTemplate = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                marginLeft: '210px'
+                marginLeft: size.width >= 750 ? '210px' : '0px'
               }}
             >
-              <img src={cloud} alt="Cloud technology" style={{ width: '385.79px', height: '436.49px' }} />
+              <img 
+                src={cloud}
+                alt="Cloud technology"
+                style={{
+                  width: size.width >= 750 ? '385.79px' : '300px',
+                  height: size.width >= 750 ?'436.49px' : '350.7px'
+                }}
+              />
             </div>
           </div>
         </div>
       </section>
-      <section style={{ height: '656px', backgroundColor: '#F9F9F9' }}>
+      <section
+        style={{
+          height: size.width >= 750 ? '656px' : '1350px',
+          backgroundColor: '#F9F9F9'
+        }}>
         <div
           style={{
             height: '100%',
@@ -489,7 +530,7 @@ export const IndexPageTemplate = () => {
               fontSize: '40px',
               fontWeight: 200,
               color: '#00afdc',
-              width: '600px',
+              width: size.width >= 750 ? '600px' : '300px',
               textAlign: 'center',
               lineHeight: '1em',
               margin: '50px 0px'
@@ -500,7 +541,7 @@ export const IndexPageTemplate = () => {
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: size.width >= 750 ? 'row' : 'column',
               height: '55%',
             }}
           >
@@ -517,6 +558,7 @@ export const IndexPageTemplate = () => {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'center',
+                  justifyContent: size.width >= 750 ? 'initial' : 'center',
                   marginBottom: '20px'
                 }}
               >
@@ -538,6 +580,7 @@ export const IndexPageTemplate = () => {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'center',
+                  justifyContent: size.width >= 750 ? 'initial' : 'center',
                   marginBottom: '20px'
                 }}
               >
@@ -548,7 +591,9 @@ export const IndexPageTemplate = () => {
                     fontSize: '20px',
                     fontWeight: 200,
                     color: '#707070',
-                    marginLeft: '20px'
+                    marginLeft: '20px',
+                    width: size.width >= 750 ? '100%' : '50%',
+                    textAlign: size.width >= 750 ? 'initial' : 'center'
                   }}
                 >
                   Payments with facial recognition
@@ -559,6 +604,7 @@ export const IndexPageTemplate = () => {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'center',
+                  justifyContent: size.width >= 750 ? 'initial' : 'center',
                   marginBottom: '20px'
                 }}
               >
@@ -579,7 +625,8 @@ export const IndexPageTemplate = () => {
                 style={{
                   display: 'flex',
                   flexDirection: 'row',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  justifyContent: size.width >= 750 ? 'initial' : 'center',
                 }}
               >
                 <img src={loan} alt="Loans" style={{ width: '51px', height: '51px' }} />
@@ -590,7 +637,8 @@ export const IndexPageTemplate = () => {
                     fontWeight: 200,
                     color: '#707070',
                     marginLeft: '20px',
-                    width: '330px'
+                    width: size.width >= 750 ? '330px' : '50%',
+                    textAlign: size.width >= 750 ? 'initial' : 'center'
                   }}
                 >
                   Loans and microloans management for third parties
@@ -609,9 +657,9 @@ export const IndexPageTemplate = () => {
                 src={card}
                 alt="Credit card"
                 style={{ 
-                  width: '345.79px',
-                  height: '346.49px',
-                  margin: '0px 20px' 
+                  width: size.width >= 750 ? '345.79px' : '300px',
+                  height: size.width >= 750 ? '346.49px' : '300.7',
+                  margin: size.width >= 750 ? '0px 20px' : '20px auto'
                 }} />
             </div>
             <div
@@ -627,6 +675,7 @@ export const IndexPageTemplate = () => {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'center',
+                  justifyContent: size.width >= 750 ? 'initial' : 'center',
                   marginBottom: '20px'
                 }}
               >
@@ -637,7 +686,9 @@ export const IndexPageTemplate = () => {
                     fontSize: '20px',
                     fontWeight: 200,
                     color: '#707070',
-                    marginLeft: '20px'
+                    marginLeft: '20px',
+                    width: size.width >= 750 ? '100%' : '50%',
+                    textAlign: size.width >= 750 ? 'initial' : 'center',
                   }}
                 >
                   Savings accounts management
@@ -648,6 +699,7 @@ export const IndexPageTemplate = () => {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'center',
+                  justifyContent: size.width >= 750 ? 'initial' : 'center',
                   marginBottom: '20px'
                 }}
               >
@@ -669,6 +721,7 @@ export const IndexPageTemplate = () => {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'center',
+                  justifyContent: size.width >= 750 ? 'initial' : 'center',
                   marginBottom: '20px'
                 }}
               >
@@ -680,7 +733,8 @@ export const IndexPageTemplate = () => {
                     fontWeight: 200,
                     color: '#707070',
                     marginLeft: '20px',
-                    width: '330px',
+                    width: size.width >= 750 ? '330px' : '50%',
+                    textAlign: size.width >= 750 ? 'initial' : 'center',
                   }}
                 >
                   A friendly Information layer for payments and transfers
@@ -691,7 +745,7 @@ export const IndexPageTemplate = () => {
         </div>
       </section>
       <section
-        style={{ height: '281px',
+        style={{ height: size.width >= 750 ? '281px' : '380px',
         backgroundImage:' linear-gradient( #A7EDFF, #E1F9FF)'
       }}>
         <div
@@ -706,17 +760,25 @@ export const IndexPageTemplate = () => {
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: size.width >= 750 ? 'row' : 'column',
               height: '100%',
               alignItems: 'center'
             }}
           >
-            <img src={coin} alt="Coin" style={{ width: '186.48px', height: '209px' }} />
+            <img 
+              src={coin}
+              alt="Coin"
+              style={{
+                width: '186.48px',
+                height: '209px',
+                marginTop: size.width >= 750 ? '0px' : '35px' 
+              }}
+            />
             <div
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                marginLeft: '30px'
+                marginLeft: size.width >= 750 ? '30px' : '0px'
               }}
             >
               <p
@@ -724,7 +786,8 @@ export const IndexPageTemplate = () => {
                   fontSize: '50px',
                   fontWeight: 200,
                   fontFamily: 'Open Sans',
-                  color: '#00253D'
+                  color: '#00253D',
+                  textAlign: size.width >= 750 ? 'initial' : 'center'
                 }}
               >
                 Our Strategy
@@ -734,7 +797,8 @@ export const IndexPageTemplate = () => {
                   fontSize: '20px',
                   fontWeight: 200,
                   fontFamily: 'Open Sans',
-                  color: '#00253D'
+                  color: '#00253D',
+                  textAlign: size.width >= 750 ? 'initial' : 'center',
                 }}
               >
                 Give free tech to users and collect payments
@@ -770,9 +834,9 @@ export const IndexPageTemplate = () => {
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row',
-              height: '55%',
-              marginTop: '200px'
+              flexDirection: size.width >= 750 ? 'row' : 'column',
+              height: size.width >= 750 ? '55%' : '100%',
+              marginTop: size.width >= 750 ? '200px' : '10px'
             }}
           >
             <div
@@ -789,17 +853,18 @@ export const IndexPageTemplate = () => {
                 style={{ 
                   width: '469px',
                   height: '752px',
-                  margin: '0px 20px' 
+                  margin: '0px 20px',
+                  display: size.width >= 750 ? 'block' : 'none' 
                 }} 
               />
               <div
                 style={{
-                  position: 'relative',
-                  width: '398px',
+                  position: size.width >= 750 ? 'relative' : 'static',
+                  width: size.width >= 750 ? '398px' : '300px',
                   height: '278px',
                   backgroundColor: 'white',
-                  top: '-215px',
-                  left: '178px',
+                  top: size.width >= 750 ? '-215px' : '0px',
+                  left: size.width >= 750 ? '178px' : '0px',
                   borderTop: '5px solid #00afdc',
                 }}
               >
@@ -854,12 +919,13 @@ export const IndexPageTemplate = () => {
                 style={{ 
                   width: '465px',
                   height: '748px',
-                  margin: '0px 90px' 
+                  margin: '0px 90px',
+                  display: size.width >= 750 ? 'block' : 'none' 
                 }} />
                 <div
                   style={{
-                    position: 'relative',
-                    width: '398px',
+                    position: size.width >= 750 ? 'relative' : 'static',
+                    width: size.width >= 750 ? '398px' : '300px',
                     height: '278px',
                     backgroundColor: 'white',
                     top: '-748px',
@@ -919,7 +985,7 @@ export const IndexPageTemplate = () => {
           <div
             style={{
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: size.width >= 750 ? 'row' : 'column',
               alignItems: 'center',
               marginTop: '20px'
             }}
@@ -944,7 +1010,8 @@ export const IndexPageTemplate = () => {
                 fontWeight: 600,
                 fontFamily: 'Open Sans',
                 padding: '4px 40px',
-                marginLeft: '60px'
+                marginLeft: size.width >= 750 ? '60px' : '0px',
+                marginBottom: size.width >= 750 ? '0px' : '20px'
               }}
             >
               TRY FOR FREE
