@@ -87,7 +87,7 @@ const Navbar = class extends React.Component {
               }}>
                 BLOG
               </Link>
-              <Link className="navbar-item" to="https://leancore.co/specification/" style={styles.buttonText}>
+              <Link className="navbar-item" to="https://api.leancore.co/specification" style={styles.buttonText}>
                 ABOUT
               </Link>
               <Link className="navbar-item" to="/contact" style={{

@@ -473,7 +473,7 @@ export const IndexPageTemplate = ({ size }) => {
                 The financial ecosystem is experimenting a revolution with open banking tools and Leancore is your key partner to lead this transformation.  
               </p>
               <Link 
-                to="https://leancore.co/specification/" 
+                to="https://api.leancore.co/specification" 
                 style={{
                   borderRadius: 25,
                   justifyContent: 'center',
@@ -482,7 +482,8 @@ export const IndexPageTemplate = ({ size }) => {
                   color: 'white',
                   padding: '4px 40px',
                   marginTop: '40px',
-                  width: '162px'
+                  width: '192px',
+                  textAlign: 'center'
                 }}
               >
                 Try our API
@@ -1010,7 +1011,8 @@ export const IndexPageTemplate = ({ size }) => {
                 fontFamily: 'Open Sans',
                 padding: '4px 40px',
                 marginLeft: size.width >= 750 ? '60px' : '0px',
-                marginBottom: size.width >= 750 ? '0px' : '20px'
+                marginBottom: size.width >= 750 ? '0px' : '20px',
+                backgroundColor: 'white'
               }}
             >
               TRY FOR FREE
