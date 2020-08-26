@@ -418,8 +418,8 @@ export const IndexPageTemplate = ({ size }) => {
       >
         <div
           style={{
-            height: '100%',
-            width: '100%',
+            // height: '100%',
+            // width: '100%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -429,7 +429,7 @@ export const IndexPageTemplate = ({ size }) => {
             style={{
               display: 'flex',
               flexDirection: size.width >= 750 ? 'row' : 'column',
-              height: '100%',
+              //height: '100%',
             }}
           >
             <div
@@ -491,7 +491,7 @@ export const IndexPageTemplate = ({ size }) => {
             </div>
             <div
               style={{
-                height: '100%',
+                //height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -502,6 +502,7 @@ export const IndexPageTemplate = ({ size }) => {
                 src={cloud}
                 alt="Cloud technology"
                 style={{
+                  marginTop: size.width >= 750 ? '0px' : '20px', 
                   width: size.width >= 750 ? '385.79px' : '300px',
                   height: size.width >= 750 ?'436.49px' : '350.7px'
                 }}
