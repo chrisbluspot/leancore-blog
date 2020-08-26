@@ -777,8 +777,7 @@ export const IndexPageTemplate = ({ size }) => {
               alt="Coin"
               style={{
                 width: '186.48px',
-                height: '209px',
-                marginTop: size.width >= 750 ? '0px' : '35px' 
+                height: '209px', 
               }}
             />
             <div
@@ -817,8 +816,8 @@ export const IndexPageTemplate = ({ size }) => {
       <section style={{ height: '1000px', backgroundColor: '#F9F9F9' }}>
         <div
           style={{
-            // height: '100%',
-            // width: '100%',
+            height: '1000px',
+            //width: '100%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
