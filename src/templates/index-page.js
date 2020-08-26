@@ -811,8 +811,8 @@ export const IndexPageTemplate = ({ size }) => {
       <section style={{ height: '1000px', backgroundColor: '#F9F9F9' }}>
         <div
           style={{
-            height: '100%',
-            width: '100%',
+            // height: '100%',
+            // width: '100%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -842,7 +842,7 @@ export const IndexPageTemplate = ({ size }) => {
           >
             <div
               style={{
-                height: '100%',
+                // height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -907,7 +907,7 @@ export const IndexPageTemplate = ({ size }) => {
             </div>
             <div
               style={{
-                height: '100%',
+                // height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
