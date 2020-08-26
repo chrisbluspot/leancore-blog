@@ -78,7 +78,6 @@ export const IndexPageTemplate = ({ size }) => {
     })
   }
 
-  console.log('size: ', size.width);
   return (
     <div>
       <Modal
