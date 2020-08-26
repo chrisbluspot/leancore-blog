@@ -841,7 +841,7 @@ export const IndexPageTemplate = ({ size }) => {
             style={{
               display: 'flex',
               flexDirection: size.width >= 750 ? 'row' : 'column',
-              height: size.width >= 750 ? '549px' : '998.18px',
+              height: size.width >= 750 ? '549px' : '628.18px',
               marginTop: size.width >= 750 ? '200px' : '10px',
             }}
           >
