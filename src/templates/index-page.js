@@ -349,7 +349,7 @@ export const IndexPageTemplate = ({ size }) => {
             <div
               style={{
                 width: size.width >= 750 ? '590px' : '300px',
-                height: '756px',
+                height: size.width >= 750 ? '756px' : '446px',
                 overflow: 'hidden',
                 position: size.width >= 750 ? 'relative' : 'static',
                 top: size.width >= 750 ? '40px' : '0px',
@@ -357,7 +357,7 @@ export const IndexPageTemplate = ({ size }) => {
             >
               <img 
                 src={cellphone}
-                alt="White cubes"
+                alt="Cell phone"
                 style={{
                   width: size.width >= 750 ? '1091px' : '801px',
                   height: size.width >= 750 ? '756px' : '466px',
