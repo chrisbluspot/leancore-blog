@@ -816,7 +816,7 @@ export const IndexPageTemplate = ({ size }) => {
       <section style={{ height: '1000px', backgroundColor: '#F9F9F9' }}>
         <div
           style={{
-            height: '1000px',
+            //height: '1000px',
             //width: '100%',
             display: 'flex',
             flexDirection: 'column',
