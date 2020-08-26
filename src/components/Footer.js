@@ -9,7 +9,21 @@ import vimeo from '../img/social/vimeo.svg'
 const Footer = class extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { email: '' }
+    this.state = { email: '', width: 0, height: 0 }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
   handleSubmit = (e) => {
@@ -110,7 +124,7 @@ const Footer = class extends React.Component {
                       <input
                         style={{
                           height: '50px',
-                          width: '300px',
+                          width: this.state.width > 750 ? '300px' : '220px',
                           borderTopLeftRadius: '15px',
                           borderBottomLeftRadius: '15px',
                           border: '2px solid #707070',
