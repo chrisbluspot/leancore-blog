@@ -291,7 +291,7 @@ export const IndexPageTemplate = ({ size }) => {
           <div
             style={{
               width: size.width >= 850 ? '750px' : '300px',
-              marginTop: '294px',
+              marginTop: size.width >= 750 ? '294px' : '250px',
               display: 'flex',
               flexDirection: size.width >= 750 ? 'row' : 'column',
               //paddingLeft: size.width >= 1920 ? '261.8px' : size.width >= 992 ? '60px' : '0px',
