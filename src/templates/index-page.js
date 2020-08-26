@@ -413,7 +413,10 @@ export const IndexPageTemplate = ({ size }) => {
       <section
         style={{ 
           height: size.width >= 750 ? '656px' : '800px',
-          backgroundImage:' linear-gradient( #A7EDFF, #E1F9FF)'
+          backgroundImage:' linear-gradient( #A7EDFF, #E1F9FF)',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center'
         }}
       >
         <div
