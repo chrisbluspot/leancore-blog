@@ -20,7 +20,23 @@ const Navbar = class extends React.Component {
     this.state = {
       active: false,
       navBarActiveClass: '',
+      width: 0,
+      height: 0
     }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
 
   toggleHamburger = () => {
@@ -55,7 +71,7 @@ const Navbar = class extends React.Component {
         role="navigation"
         aria-label="main-navigation"
       >
-        <div className="container" style={{ paddingTop: 20 }}>
+        <div className="container" style={{ paddingTop: this.state.width > 1020 ? 20 : 0 }}>
            <div className="navbar-brand">
             {/* Hamburger menu */}
             <div
