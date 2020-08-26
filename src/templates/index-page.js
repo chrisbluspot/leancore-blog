@@ -993,7 +993,7 @@ export const IndexPageTemplate = ({ size }) => {
               display: 'flex',
               flexDirection: size.width >= 750 ? 'row' : 'column',
               alignItems: 'center',
-              marginTop: '20px'
+              marginTop: size.width >= 750 ? '20px' : '0px'
             }}
           >
             <p
