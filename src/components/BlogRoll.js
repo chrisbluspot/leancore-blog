@@ -4,15 +4,44 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 
 class BlogRoll extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { width: 0, height: 0 }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
+
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline" style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div 
+        className="columns is-multiline"
+        style={{
+          display: this.state.width >= 750 ? 'flex' : 'block',
+          justifyContent: this.state.width >= 750 ? 'space-between' : 'initial'
+        }}>
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-4" key={post.id} style={{ maxWidth: '30%' }}>
+            <div
+              className="is-parent column is-4"
+              key={post.id}
+              style={{
+                maxWidth: this.state.width >= 750 ? '30%' : '100%'
+              }}>
               <article
                 className={`blog-list-item tile is-child box ${
                   post.frontmatter.featuredpost ? 'is-featured' : ''
