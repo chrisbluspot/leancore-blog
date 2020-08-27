@@ -25,7 +25,7 @@ export const BlogIndexPageTemplate = ({
         // backgroundImage: `url(${
         //   !!image.childImageSharp ? image.childImageSharp.fluid.src : image
         // })`,
-        backgroundImage: `url(${indexBackground}), linear-gradient(30deg, #A7EDFF, #E1F9FF)`,
+        backgroundImage: size.width >= 750 ? `url(${indexBackground}), linear-gradient(30deg, #A7EDFF, #E1F9FF)` : 'linear-gradient(30deg, #A7EDFF, #E1F9FF)',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: `top left`,
         backgroundAttachment: `fixed`,
@@ -47,7 +47,7 @@ export const BlogIndexPageTemplate = ({
         <div
           style={{
             marginTop: '164px',
-            paddingLeft: size.width >= 1920 ? '261.8px' : size.width >= 992 ? '60px' : '0px',
+            paddingLeft: size.width >= 1920 ? '261.8px' : size.width >= 992 ? '60px' : '25px',
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
@@ -72,7 +72,7 @@ export const BlogIndexPageTemplate = ({
           style={{
             display: 'flex',
             height: '125px',
-            width: '700px',
+            width: size.width >= 750 ?'700px' : '300px',
             paddingLeft: '30px',
             lineHeight: '1',
             justifyContent: 'space-around',
@@ -96,6 +96,7 @@ export const BlogIndexPageTemplate = ({
               color: '#00253D',
               lineHeight: '1',
               padding: '0.25em',
+              fontSize: size.width >= 750 ? '26px' : '16px'
             }}
           >
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
