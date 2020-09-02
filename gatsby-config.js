@@ -72,6 +72,37 @@ module.exports = {
         purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
       },
     }, // must be after other CSS plugins
+    {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleAnalytics: {
+          trackingId: '', // leave empty if you want to disable the tracker
+          cookieName: 'gatsby-gdpr-google-analytics', // default
+          anonymize: true // default
+        },
+        googleTagManager: {
+          trackingId: 'UA-175992431-1', // leave empty if you want to disable the tracker
+          cookieName: 'gatsby-gdpr-google-tagmanager', // default
+          dataLayerName: 'dataLayer', // default
+        },
+        facebookPixel: {
+          pixelId: '1343321189195931', // leave empty if you want to disable the tracker
+          cookieName: 'gatsby-gdpr-facebook-pixel', // default
+        },
+        // defines the environments where the tracking should be available  - default is ["production"]
+        environments: ['production', 'development']
+      },
+    },
+    {
+      resolve: `gatsby-plugin-linkedin-insight`,
+      options: {
+        partnerId: `2324578`,
+  
+        // Include LinkedIn Insight in development.
+        // Defaults to false meaning LinkedIn Insight will only be loaded in production.
+        includeInDevelopment: false
+      }
+    },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 }
