@@ -92,7 +92,8 @@ export const BlogPostTemplate = ({
                   maxWidth: 600,
                   marginLeft: "auto",
                   marginRight: "auto",
-                  marginTop: 125
+                  marginTop: 125,
+                  //maxHeight: 625
                 }}
               >
                 <PreviewCompatibleImage
@@ -227,7 +228,7 @@ export const pageQuery = graphql`
         tags
         featuredimage {
           childImageSharp {
-            fluid(maxWidth: 600, quality: 100) {
+            fluid(maxWidth: 600, maxHeight: 625, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
