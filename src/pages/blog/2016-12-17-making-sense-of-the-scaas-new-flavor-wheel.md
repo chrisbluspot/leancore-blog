@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: "FINTECH Y BANCA: ¿ BATALLA O ALIANZA ?"
+title: "FINTECH Y BANCA: ¿BATALLA O ALIANZA?"
 date: 2020-09-03T19:16:49.106Z
 description: Dolor bluspot
 featuredpost: false
