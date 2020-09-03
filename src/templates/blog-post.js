@@ -9,6 +9,7 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import useWindowSize from '../hooks/useWindowSize'
 import blogBackground from '../img/blog-background.png'
 import logo from '../img/logo.png'
+import Img from 'gatsby-image'
 
 export const BlogPostTemplate = ({
   content,
@@ -22,6 +23,7 @@ export const BlogPostTemplate = ({
 }) => {
   const PostContent = contentComponent || Content
   const size = useWindowSize();
+  console.log("feat: ", featuredImage)
   return (
     <div>
       <div
@@ -81,30 +83,27 @@ export const BlogPostTemplate = ({
       <section className="section">
         {helmet || ''}
         <div 
-          className="container content"
+          className="content"
         >
-          <div className="columns">
-            <div 
-              className="column is-6"
-              style={{
-                display: 'flex',
-                justifyContent: 'center'
-              }}
-            >
-              <PreviewCompatibleImage
-                imageInfo={{
-                  image: featuredImage,
-                  alt: `Image for post ${title}`,
+          <div style={{ display: "flex", flexDirection: "row"}}>
+            <div style={{ flex: 1 }}>
+              <div
+                style={{ 
+                  maxWidth: 600,
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  marginTop: 125
                 }}
-              />
+              >
+                <PreviewCompatibleImage
+                  imageInfo={{
+                    image: featuredImage,
+                    alt: `Image for post ${title}`,
+                  }}
+                />
+              </div>
             </div>
-            <div 
-              className="column is-6"
-              style={{
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
+            <div style={{ flex: 1 }}>
               <p
                 style={{
                   fontFamily: 'Open Sans',
@@ -228,7 +227,7 @@ export const pageQuery = graphql`
         tags
         featuredimage {
           childImageSharp {
-            fluid(maxWidth: 120, quality: 100) {
+            fluid(maxWidth: 600, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
