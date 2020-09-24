@@ -14,6 +14,10 @@ tags:
   - regulación
   - paytech
 ---
+Por **Edwin Zácipa**
+
+*Latam Top Fintech Influencer / Mobilizer in Colombia Fintech ecosystem / Fintech Enabler*
+
 **En los próximos días se expedirá la nueva regulación de ecosistemas de pagos en Colombia que propone una arquitectura moderna en la forma como interactúan todos los participantes de los sistemas de pagos de bajo valor y sus administradores.**
 
 Uno de los componentes de mayor valor que trae este nuevo decreto elaborado por la URF (Unidad de Regulación Financiera del Ministerio de Hacienda) es la redefinición de la actividad de adquirencia, tradicionalmente conocida, como el proceso de:
