@@ -122,7 +122,7 @@ export const BlogPostTemplate = ({
                   fontSize: 26,
                   fontWeight: 400,
                   color: '#00253D',
-                  lineHeight: '0.032em',
+                  //lineHeight: '0.032em',
                 }}
               >
                 {title}
